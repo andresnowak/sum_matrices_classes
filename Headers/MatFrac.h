@@ -5,6 +5,7 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 
 #include "Fraction.h"
 
@@ -27,9 +28,9 @@ private:
 public:
     MatFrac(vector<vector<Fraction>> fractions);
 
-    pair<MatFrac, bool> sumMatrices(MatFrac fractions_matrix_2);
+    pair<MatFrac, bool> operator+(MatFrac fractions_matrix_2);
 
-    void printMatrix();
+    friend ostream &operator<<(ostream &output, const MatFrac &matrix);
 
     vector<vector<Fraction>> getMatrix();
 };

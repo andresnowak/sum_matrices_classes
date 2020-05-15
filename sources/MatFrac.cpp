@@ -95,7 +95,7 @@ MatFrac::MatFrac(vector<vector<Fraction>> fractions)
     this->size_cols = this->_fractions[0].size();
 }
 
-pair<MatFrac, bool> MatFrac::sumMatrices(MatFrac fractions_matrix_2)
+pair<MatFrac, bool> MatFrac::operator+(MatFrac fractions_matrix_2)
 {
     vector<vector<Fraction>> fractions_2 = fractions_matrix_2.getMatrix();
 
@@ -112,25 +112,26 @@ pair<MatFrac, bool> MatFrac::sumMatrices(MatFrac fractions_matrix_2)
     {
         for (int col = 0; col < size_cols; col++)
         {
-            sum_fractions[row][col] = this->_fractions[row][col].sumFractions(fractions_2[row][col]);
+            sum_fractions[row][col] = this->_fractions[row][col] + fractions_2[row][col];
         }
     }
 
     return make_pair(MatFrac(sum_fractions), true);
 }
 
-void MatFrac::printMatrix()
+ostream &operator<<(ostream &output, const MatFrac &matrix)
 {
-    for (auto row : this->_fractions)
+    for (auto row : matrix._fractions)
     {
         for (auto col : row)
         {
-            col.printFractions();
-            cout << " ";
+            output << col << " ";
         }
 
-        cout << "\n";
+        output << "\n";
     }
+
+    return output;
 }
 
 vector<vector<Fraction>> MatFrac::getMatrix()

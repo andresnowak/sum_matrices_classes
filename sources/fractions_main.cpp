@@ -133,7 +133,7 @@ int main()
 
     srand(time(NULL));
 
-    cout << "introduzca el nombre de los archivos con extension:" << endl;
+    cout << "introduzca el nombre de los archivos con extension(tiene que estar adentro de la carpeta matrices):" << endl;
 
     cout << "texto 1: ";
     cin >> name_of_doc_1;
@@ -149,7 +149,7 @@ int main()
     MatFrac matrix_1 = MatFrac(createMatrixFromFile(directory_matrices + name_of_doc_1));
     MatFrac matrix_2 = MatFrac(createMatrixFromFile(directory_matrices + name_of_doc_2));
 
-    pair<MatFrac, bool> sum_matrices = matrix_1.sumMatrices(matrix_2);
+    pair<MatFrac, bool> sum_matrices = matrix_1 + matrix_2;
 
     if (sum_matrices.second)
     {
@@ -161,18 +161,14 @@ int main()
 
         writeMatrixToFile(directory_matrices + name_of_doc_result, sum_matrices.first.getMatrix());
 
-        matrix_1.printMatrix();
-
-        cout << "\n"
+        cout << matrix_1 << "\n"
              << "+"
              << "\n\n";
 
-        matrix_2.printMatrix();
-
-        cout << "\n"
+        cout << matrix_2 << "\n"
              << "="
              << "\n\n";
 
-        sum_matrices.first.printMatrix();
+        cout << sum_matrices.first;
     }
 }

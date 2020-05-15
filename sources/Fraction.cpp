@@ -110,7 +110,7 @@ Fraction::Fraction()
     this->_denominator = 1;
 }
 
-Fraction Fraction::sumFractions(Fraction fraccion_2)
+Fraction Fraction::operator+(Fraction fraccion_2)
 {
     unsigned int denominator_2 = fraccion_2.getDenominator();
 
@@ -126,7 +126,7 @@ Fraction Fraction::sumFractions(Fraction fraccion_2)
     return Fraction(sum_numerators, common_denominator);
 }
 
-Fraction Fraction::multiplyFractions(Fraction fraccion_2)
+Fraction Fraction::operator*(Fraction fraccion_2)
 {
     unsigned int denominator_2 = fraccion_2.getDenominator();
     int numerator_2 = fraccion_2.getNumerator();
@@ -139,14 +139,11 @@ Fraction Fraction::multiplyFractions(Fraction fraccion_2)
     return Fraction(multiply_numerators, multiply_denominators);
 }
 
-void Fraction::printFractions(bool new_line)
+ostream &operator<<(ostream &output, const Fraction &fraction)
 {
-    cout << this->_numerator << "/" << this->_denominator;
+    output << fraction._numerator << "/" << fraction._denominator;
 
-    if (new_line == true)
-    {
-        cout << endl;
-    }
+    return output;
 }
 
 int Fraction::getDenominator()

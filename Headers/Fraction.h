@@ -3,8 +3,12 @@
 @ Date: Mon May 11 15:59:48 CDT 2020
 */
 
+#include <iostream>
+
 #ifndef FRACTION_H
 #define FRACTION_H
+
+using namespace std;
 
 class Fraction
 {
@@ -26,10 +30,10 @@ public:
     Fraction(int numerator, int denominator);
     Fraction();
 
-    Fraction sumFractions(Fraction fraccion_2);
-    Fraction multiplyFractions(Fraction fraccion_2);
+    Fraction operator+(Fraction fraccion_2);
+    Fraction operator*(Fraction fraccion_2);
 
-    void printFractions(bool new_line = false);
+    friend ostream &operator<<(ostream &output, const Fraction &fraction);
 
     int getDenominator();
     int getNumerator();
