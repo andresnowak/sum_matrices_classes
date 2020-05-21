@@ -28,7 +28,7 @@ private:
 public:
     MatFrac(vector<vector<Fraction>> fractions);
 
-    pair<MatFrac, bool> operator+(MatFrac fractions_matrix_2);
+    pair<MatFrac, bool> operator+(MatFrac &fractions_matrix_2);
 
     friend ostream &operator<<(ostream &output, const MatFrac &matrix);
 

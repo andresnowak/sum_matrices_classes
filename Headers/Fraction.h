@@ -30,8 +30,8 @@ public:
     Fraction(int numerator, int denominator);
     Fraction();
 
-    Fraction operator+(Fraction fraccion_2);
-    Fraction operator*(Fraction fraccion_2);
+    Fraction operator+(Fraction &fraccion_2);
+    Fraction operator*(Fraction &fraccion_2);
 
     friend ostream &operator<<(ostream &output, const Fraction &fraction);
 

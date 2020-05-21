@@ -110,7 +110,7 @@ Fraction::Fraction()
     this->_denominator = 1;
 }
 
-Fraction Fraction::operator+(Fraction fraccion_2)
+Fraction Fraction::operator+(Fraction &fraccion_2)
 {
     unsigned int denominator_2 = fraccion_2.getDenominator();
 
@@ -126,7 +126,7 @@ Fraction Fraction::operator+(Fraction fraccion_2)
     return Fraction(sum_numerators, common_denominator);
 }
 
-Fraction Fraction::operator*(Fraction fraccion_2)
+Fraction Fraction::operator*(Fraction &fraccion_2)
 {
     unsigned int denominator_2 = fraccion_2.getDenominator();
     int numerator_2 = fraccion_2.getNumerator();

@@ -95,7 +95,7 @@ MatFrac::MatFrac(vector<vector<Fraction>> fractions)
     this->size_cols = this->_fractions[0].size();
 }
 
-pair<MatFrac, bool> MatFrac::operator+(MatFrac fractions_matrix_2)
+pair<MatFrac, bool> MatFrac::operator+(MatFrac &fractions_matrix_2)
 {
     vector<vector<Fraction>> fractions_2 = fractions_matrix_2.getMatrix();
 
